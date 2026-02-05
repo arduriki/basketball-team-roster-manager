@@ -59,11 +59,40 @@ php -S localhost:8000
 
 ### Database setup
 
-Instructions will be added during Phase 2.
+This project uses Docker to run MySQL:
+
+```bash
+# Start MySQL container
+docker compose up -d
+
+# Verify it's running
+docker compose ps
+```
+
+Then connect to MySQL and create the players table:
+
+```bash
+# Connect to MySQL (password: secret)
+docker exec -it basketball_db mysql -u root -p
+```
+
+```sql
+USE basketball_roster;
+
+CREATE TABLE IF NOT EXISTS players (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    number INT NOT NULL,
+    position VARCHAR(100) NOT NULL
+);
+```
 
 ## Status
 
-🚧 Work in progress — learning one phase at a time.
+✅ Phase 1 — Foundation (complete)
+✅ Phase 2 — Database (complete)
+✅ Phase 3 — Create (complete)
+🚧 Phase 4 — Read & Detail (up next)
 
 ## License
 
