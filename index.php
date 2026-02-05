@@ -1,3 +1,7 @@
+<?php
+require 'database.php';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,25 +16,6 @@
 
     <?= "<p>This part comes from PHP!</p>" ?>
 
-    <?php
-    $players = [
-        [
-            "name" => "Dario Brizuela",
-            "number" => 8,
-            "position" => "Guard",
-        ],
-        [
-            "name" => "Tornike Shengelia",
-            "number" => 23,
-            "position" => "Guard",
-        ],
-        [
-            "name" => "Joel Parra",
-            "number" => 44,
-            "position" => "Forward",
-        ]
-    ];
-    ?>
     <ul>
         <?php
         foreach ($players as $player) {
@@ -38,8 +23,6 @@
         }
         ?>
     </ul>
-
-
 
 </body>
 

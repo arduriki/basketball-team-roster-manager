@@ -127,3 +127,5 @@ When Jordi begins a session, start by:
 2. Briefly recapping where they left off
 3. Setting a small, clear goal for the current session
 4. Checking if he reviewed any docs or has questions before starting
+
+Use context7 when necessary.

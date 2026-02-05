@@ -29,6 +29,7 @@ When you visit a website:
 ### 3. Mixing PHP and HTML
 
 In a `.php` file:
+
 - Anything **inside** `<?php ?>` tags is PHP code
 - Anything **outside** those tags is sent directly as HTML
 
@@ -48,11 +49,13 @@ In a `.php` file:
 ### 4. Arrays in PHP
 
 **Simple array** (list of values):
+
 ```php
 $players = ["Player 1", "Player 2", "Player 3"];
 ```
 
 **Associative array** (key-value pairs):
+
 ```php
 $player = [
     "name" => "Dario Brizuela",
@@ -63,6 +66,7 @@ $player = [
 ```
 
 **Multidimensional array** (array of arrays):
+
 ```php
 $players = [
     ["name" => "Player 1", "number" => 1],
@@ -97,6 +101,7 @@ This is cleaner than concatenation: `"Player: " . $player["name"]`
 ## What I Built
 
 A PHP page (`index.php`) that:
+
 - Displays a basketball roster with player names, numbers, and positions
 - Uses an array of associative arrays to store player data
 - Uses a foreach loop to generate HTML list items
@@ -106,6 +111,7 @@ A PHP page (`index.php`) that:
 ## Commands Learned
 
 Start PHP's built-in development server:
+
 ```bash
 php -S localhost:8000
 ```
