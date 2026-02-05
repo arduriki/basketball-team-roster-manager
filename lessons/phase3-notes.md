@@ -25,6 +25,7 @@ Forms collect user input and send it to the server.
 ```
 
 **Key attributes:**
+
 - `method` — how to send data (GET or POST)
 - `action` — where to send the data (which PHP file)
 - `name` — on inputs, this is the key PHP uses to access the value
@@ -58,6 +59,7 @@ $_POST['player_number']    // value from the input with name="player_number"
 ```
 
 **Check if form was submitted:**
+
 ```php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // form was submitted
@@ -74,6 +76,7 @@ $pdo->query("INSERT INTO players (name) VALUES ('{$_POST['player_name']}')");
 ```
 
 A malicious user could input:
+
 ```
 '); DELETE FROM players; --
 ```
@@ -85,12 +88,14 @@ This would delete all your data!
 Separate the SQL structure from the values:
 
 **Positional placeholders (`?`):**
+
 ```php
 $stmt = $pdo->prepare("INSERT INTO players (name, number, position) VALUES (?, ?, ?)");
 $stmt->execute([$name, $number, $position]);
 ```
 
 **Named placeholders (`:name`) — more readable:**
+
 ```php
 $stmt = $pdo->prepare("INSERT INTO players (name, number, position) VALUES (:name, :number, :position)");
 $stmt->execute([
@@ -117,12 +122,14 @@ PHP has special arrays available everywhere:
 ## What I Built
 
 **add-player.php:**
+
 - HTML form with inputs for name, number, position
 - PHP code that checks for POST submission
 - Prepared statement to safely insert into database
 - Success message and link back to roster
 
 **index.php updates:**
+
 - Added link to the add player form
 
 ---
@@ -168,6 +175,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ## Looking Ahead: Phase 4
 
 Next, we'll create individual player detail pages using URL parameters:
+
 - `player.php?id=3` — shows player with ID 3
 - Learning to read `$_GET` parameters
 - Fetching a single record from the database
