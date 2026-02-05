@@ -14,7 +14,7 @@ require 'database.php';
 <body>
     <h1>Basketball Roster Manager</h1>
 
-    <?= "<p>This part comes from PHP!</p>" ?>
+    <?= "<h2>FC Barcelona Roster</h2>" ?>
 
     <ul>
         <?php
