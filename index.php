@@ -13,17 +13,16 @@ require 'database.php';
 
 <body>
     <h1>Basketball Roster Manager</h1>
-
     <?= "<h2>FC Barcelona Roster</h2>" ?>
-
     <ul>
-        <?php
-        foreach ($players as $player) {
-            echo "<li>#{$player["number"]} - {$player["name"]} ({$player["position"]})</li>";
-        }
-        ?>
+        <?php foreach ($players as $player): ?>
+            <li>
+                <a href="player.php?id=<?=$player['id'] ?>">
+                    #<?= $player["number"] ?> - <?= $player["name"] ?> (<?= $player["position"] ?>)
+                </a>
+            </li>
+        <?php endforeach; ?>
     </ul>
-
 </body>
 
 </html>

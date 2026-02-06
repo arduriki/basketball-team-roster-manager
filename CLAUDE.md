@@ -119,6 +119,45 @@ Jordi is building a **vanilla PHP + JavaScript + MySQL web app** — a basketbal
 - **Editor:** Jordi will work in his own editor; Claude Code assists from the terminal
 - **No frameworks, no Composer, no package managers** — only vanilla PHP, HTML, CSS, JavaScript, and MySQL
 
+### Quick Start Commands
+
+```bash
+# Start MySQL database (Docker required)
+docker compose up -d
+
+# Start PHP dev server
+php -S localhost:8000
+
+# Connect to MySQL shell (password: secret)
+docker exec -it basketball_db mysql -u root -p
+```
+
+### Database Credentials (development only)
+
+- Host: `127.0.0.1`, Port: `3306`
+- Database: `basketball_roster`
+- User: `root`, Password: `secret`
+
+## Current Progress
+
+- ✅ Phase 1 — Foundation (complete)
+- ✅ Phase 2 — Database (complete)
+- ✅ Phase 3 — Create (complete)
+- ✅ Phase 4 — Read & Detail (complete)
+- 🚧 **Phase 5 — Update & Delete** (up next)
+
+## Project Structure
+
+```
+index.php          — Main roster page (lists all players from DB)
+add-player.php     — Form + POST handler to add a new player
+player.php         — Individual player detail page (?id=X)
+database.php       — PDO connection to MySQL (shared via require)
+docker-compose.yml — MySQL 8.4 container definition
+queries.sql        — SQL queries used during development
+lessons/           — Jordi's notes from each completed phase
+```
+
 ## Session Start Prompt
 
 When Jordi begins a session, start by:
@@ -127,5 +166,3 @@ When Jordi begins a session, start by:
 2. Briefly recapping where they left off
 3. Setting a small, clear goal for the current session
 4. Checking if he reviewed any docs or has questions before starting
-
-Use context7 when necessary.
