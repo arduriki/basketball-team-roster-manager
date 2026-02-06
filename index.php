@@ -9,6 +9,7 @@ require 'database.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basketball Roster</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -23,6 +24,7 @@ require 'database.php';
             </li>
         <?php endforeach; ?>
     </ul>
+    <button><a href="add-player.php">Add Player</a></button>
 </body>
 
 </html>

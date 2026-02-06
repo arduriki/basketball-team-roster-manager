@@ -20,12 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Player</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <h1>Add new player</h1>
 
-    <form action="add-player.php" method="post">
+    <form action="add-player.php" method="post" onsubmit="return validateForm()">
         <label for="player_name">Full name</label><br>
         <input type="text" name="player_name"><br>
         <label for="player_number">Number</label><br>
@@ -34,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="text" name="player_position"><br>
         <input type="submit" value="Add Player">
     </form>
+    <script src="validation.js"></script>
 </body>
 
 </html>

@@ -1,25 +1,3 @@
-<?php
-require 'database.php';
-require 'functions.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $stmt = $pdo->prepare("UPDATE players SET name = :name, number = :number, position = :position WHERE id = :id");
-    $stmt->execute([
-        'id' => $_POST['player_id'],
-        'name' => $_POST['player_name'],
-        'number' => $_POST['player_number'],
-        'position' => $_POST['player_position']
-    ]);
-    echo "Player edited!";
-    echo '<p><a href="index.php">← Back to roster</a></p>';
-
-    die();
-}
-
-$id = getId();
-$player = checkIdPlayer($pdo, $id);
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -27,9 +5,31 @@ $player = checkIdPlayer($pdo, $id);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Player</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <?php
+    require 'database.php';
+    require 'functions.php';
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $stmt = $pdo->prepare("UPDATE players SET name = :name, number = :number, position = :position WHERE id = :id");
+        $stmt->execute([
+            'id' => $_POST['player_id'],
+            'name' => $_POST['player_name'],
+            'number' => $_POST['player_number'],
+            'position' => $_POST['player_position']
+        ]);
+        echo "Player edited!";
+        echo '<p><a href="index.php">← Back to roster</a></p>';
+
+        die();
+    }
+
+    $id = getId();
+    $player = checkIdPlayer($pdo, $id);
+    ?>    
     <?php if (!$player): ?>
         <p>Player not found</p>
     <?php else: ?>
@@ -37,7 +37,7 @@ $player = checkIdPlayer($pdo, $id);
         <p>#<?= $player['number'] ?> - <?= $player['name'] ?></p>
         <p>Position: <?= $player['position'] ?></p>
         <!-- Edit Form -->
-        <form action="edit-player.php" method="post">
+        <form action="edit-player.php" method="post" onsubmit="return validateForm()">
             <input type="hidden" name="player_id" value="<?= $player['id'] ?>">
             <label for="player_name">Full name</label><br>
             <input type="text" name="player_name" value="<?= $player['name'] ?>"><br>
@@ -49,7 +49,7 @@ $player = checkIdPlayer($pdo, $id);
         </form>
     <?php endif ?>
     <p><a href="index.php">← Back to roster</a></p>
-
+    <script src="validation.js"></script>
 </body>
 
 </html>

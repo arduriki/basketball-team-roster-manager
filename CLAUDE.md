@@ -145,7 +145,8 @@ docker exec -it basketball_db mysql -u root -p
 - ✅ Phase 3 — Create (complete)
 - ✅ Phase 4 — Read & Detail (complete)
 - ✅ Phase 5 — Update & Delete (complete)
-- 🚧 **Phase 6 — Polish & JavaScript** (up next)
+- ✅ Phase 6 — Polish & JavaScript (complete)
+- 🚧 **Phase 7 — Reflection** (up next)
 
 ## Project Structure
 
@@ -156,6 +157,8 @@ player.php         — Player detail page + delete handler (?id=X)
 edit-player.php    — Edit player form + update handler (?id=X)
 database.php       — PDO connection to MySQL (shared via require)
 functions.php      — Shared helper functions (getId, checkIdPlayer)
+validation.js      — Client-side form validation (shared across forms)
+style.css          — Global CSS styling (Google Font, centered layout)
 docker-compose.yml — MySQL 8.4 container definition
 queries.sql        — SQL queries used during development
 lessons/           — Jordi's notes from each completed phase
