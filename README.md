@@ -92,7 +92,26 @@ CREATE TABLE IF NOT EXISTS players (
 ✅ Phase 1 — Foundation (complete)
 ✅ Phase 2 — Database (complete)
 ✅ Phase 3 — Create (complete)
-🚧 Phase 4 — Read & Detail (up next)
+✅ Phase 4 — Read & Detail (complete)
+✅ Phase 5 — Update & Delete (complete)
+✅ Phase 6 — Polish & JavaScript (complete)
+✅ Phase 7 — Reflection (complete)
+
+**Project complete!** Next step: Laravel.
+
+## What I learned
+
+This project taught me the fundamentals that frameworks automate:
+
+- **PHP** — superglobals, request handling, server-side logic
+- **MySQL + PDO** — CRUD queries with prepared statements
+- **HTML forms** — GET/POST, form handling, hidden inputs
+- **JavaScript** — DOM manipulation, client-side validation
+- **CSS** — external stylesheets, layout basics
+- **Security** — SQL injection prevention, input validation
+- **Docker** — containerized development environment
+
+Every pain point I experienced (repetitive HTML, raw SQL, manual routing, hardcoded credentials) has a direct solution in Laravel — and now I understand *why* those solutions exist.
 
 ## License
 
