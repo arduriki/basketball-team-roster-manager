@@ -1,18 +1,20 @@
 <?php
 require 'database.php';
+require 'functions.php';
 
-# To check if there's no id.
-if (!isset($_GET['id'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $stmt = $pdo->prepare("DELETE FROM players WHERE id = :id");
+    $stmt->execute([
+        'id' => $_POST['player_id'],
+    ]);
+
     header('Location: index.php');
-    exit;
-} else {
-    $id = $_GET['id'];
+
+    die();
 }
 
-# Statement to check if there's a player with the id.
-$stmt = $pdo->prepare("SELECT * FROM players WHERE id = :id");
-$stmt->execute(['id' => $id]);
-$player = $stmt->fetch(PDO::FETCH_ASSOC);
+$id = getId();
+$player = checkIdPlayer($pdo, $id);
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +32,11 @@ $player = $stmt->fetch(PDO::FETCH_ASSOC);
     <?php else: ?>
         <p>#<?= $player['number'] ?> - <?= $player['name'] ?></p>
         <p>Position: <?= $player['position'] ?></p>
+        <p><a href="edit-player.php?id=<?= $player['id'] ?>">Edit Player →</a></p>
+        <form action="player.php" method="post">
+            <input type="hidden" name="player_id" value="<?= $player['id'] ?>">
+            <input type="submit" value="Delete" onclick="return confirm('Are you sure?')">
+        </form>
     <?php endif ?>
     <p><a href="index.php">← Back to roster</a></p>
 </body>
